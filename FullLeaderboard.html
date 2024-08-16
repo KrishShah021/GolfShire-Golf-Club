@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overall Player Leaderboard - GolfShire Golf Club</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #d4d1d1;
+            /* Set background color for the body */
+        }
+
+        #full-leaderboard {
+            padding: 60px 20px;
+            background: center;
+            /* Ensure background color matches body */
+            color: #333;
+            margin-top: -35px;
+        }
+
+        .leaderboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 50px;
+            /* Consolidated margin to one value */
+            font-size: 40px;
+        }
+
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .leaderboard-table thead {
+            background: #333;
+            color: #fff;
+        }
+
+        .leaderboard-table th,
+        .leaderboard-table td {
+            padding: 12px 15px;
+            text-align: center;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .leaderboard-table th {
+            font-weight: bold;
+        }
+
+        .leaderboard-table td {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .leaderboard-table img {
+            width: 24px;
+            vertical-align: middle;
+        }
+
+        .leaderboard-table tbody tr:hover {
+            background-color: #f0f8ff;
+        }
+
+        .btn-full-leaderboard {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background: #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn-full-leaderboard:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+        #leader {
+            background: #ffeb3b;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #3D405B;
+            color: white;
+            position: relative;
+            bottom: 0;
+            /* Adjusted positioning */
+            font-size: 25px;
+        }
+
+        .footer a {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section id="full-leaderboard">
+        <div class="leaderboard-container">
+            <h3>&#9670; Overall Player Leaderboard &#9670;</h3>
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Player</th>
+                        <th>Country</th>
+                        <th>Events Played</th>
+                        <th>International Wins</th>
+                        <th>Points</th>
+                        <th># of Wins</th>
+                        <th># of Top-10s</th>
+                        <th>Average Strokes Per Round</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="leader">
+                        <td>1</td>
+                        <td>Shubhankar Sharma</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>53</td>
+                        <td>5</td>
+                        <td>3670</td>
+                        <td>10</td>
+                        <td>20</td>
+                        <td>69.8</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jeev Milkha Singh</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>51</td>
+                        <td>4</td>
+                        <td>3400</td>
+                        <td>8</td>
+                        <td>18</td>
+                        <td>70.2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Arjun Atwal</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>50</td>
+                        <td>6</td>
+                        <td>3364</td>
+                        <td>9</td>
+                        <td>17</td>
+                        <td>70.5</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Ashok Kumar</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>54</td>
+                        <td>3</td>
+                        <td>3155</td>
+                        <td>7</td>
+                        <td>16</td>
+                        <td>71.0</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Gaganjeet Bhullar</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>35</td>
+                        <td>5</td>
+                        <td>3006</td>
+                        <td>8</td>
+                        <td>15</td>
+                        <td>71.2</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Michele Ortolani</td>
+                        <td><img src="/images/ita flag.gif" alt="India"></td>
+                        <td>43</td>
+                        <td>4</td>
+                        <td>2995</td>
+                        <td>9</td>
+                        <td>14</td>
+                        <td>71.5</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Viraj Madappa</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>25</td>
+                        <td>3</td>
+                        <td>2901</td>
+                        <td>6</td>
+                        <td>12</td>
+                        <td>72.0</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Shiv Kapur</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>39</td>
+                        <td>4</td>
+                        <td>2884</td>
+                        <td>8</td>
+                        <td>13</td>
+                        <td>72.3</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Manu Gandas</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>31</td>
+                        <td>2</td>
+                        <td>2700</td>
+                        <td>7</td>
+                        <td>11</td>
+                        <td>72.8</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Kartik Sharma</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>24</td>
+                        <td>1</td>
+                        <td>2656</td>
+                        <td>5</td>
+                        <td>9</td>
+                        <td>73.0</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Jamal Hossain</td>
+                        <td><img src="/images/ban flag.gif" alt="India"></td>
+                        <td>35</td>
+                        <td>2</td>
+                        <td>2595</td>
+                        <td>4</td>
+                        <td>8</td>
+                        <td>73.2</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Chiragh Kumar</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>37</td>
+                        <td>3</td>
+                        <td>2501</td>
+                        <td>6</td>
+                        <td>10</td>
+                        <td>73.5</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>N Thangaraja</td>
+                        <td><img src="/images/sri flag.gif" alt="India"></td>
+                        <td>28</td>
+                        <td>2</td>
+                        <td>2300</td>
+                        <td>5</td>
+                        <td>7</td>
+                        <td>73.8</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Nikhil Pujari</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>30</td>
+                        <td>1</td>
+                        <td>2278</td>
+                        <td>4</td>
+                        <td>6</td>
+                        <td>74.0</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Vikram Singh</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>32</td>
+                        <td>1</td>
+                        <td>2109</td>
+                        <td>3</td>
+                        <td>5</td>
+                        <td>74.2</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Arjun Singh</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>29</td>
+                        <td>1</td>
+                        <td>2103</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>74.5</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Tanveer Singh</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>33</td>
+                        <td>1</td>
+                        <td>2068</td>
+                        <td>3</td>
+                        <td>5</td>
+                        <td>74.8</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Makoto Iwasaki</td>
+                        <td><img src="/images/jpn flag.gif" alt="India"></td>
+                        <td>31</td>
+                        <td>1</td>
+                        <td>1957</td>
+                        <td>2</td>
+                        <td>6</td>
+                        <td>75.0</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Sandeep Kumar</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>27</td>
+                        <td>1</td>
+                        <td>1800</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>75.3</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Rajeev Saini</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>36</td>
+                        <td>1</td>
+                        <td>1786</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>75.5</td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>Stepan Danek</td>
+                        <td><img src="/images/cze flag.gif" alt="India"></td>
+                        <td>40</td>
+                        <td>1</td>
+                        <td>1688</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>75.8</td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>Kunal Chawla</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>33</td>
+                        <td>1</td>
+                        <td>1599</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>76.0</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>Sujit Sharma</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>28</td>
+                        <td>1</td>
+                        <td>1300</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>76.3</td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td>Subash Tamang</td>
+                        <td><img src="/images/nep flag.gif" alt="India"></td>
+                        <td>30</td>
+                        <td>1</td>
+                        <td>1277</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>76.5</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>Rakesh Kumar</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>34</td>
+                        <td>1</td>
+                        <td>1157</td>
+                        <td>1</td>
+                        <td>6</td>
+                        <td>76.8</td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>Akash Patel</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>29</td>
+                        <td>1</td>
+                        <td>1087</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>77.0</td>
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                        <td>Ravi Kumar</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>32</td>
+                        <td>1</td>
+                        <td>900</td>
+                        <td>1</td>
+                        <td>5</td>
+                        <td>77.3</td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        <td>Si In Kim</td>
+                        <td><img src="/images/kor flag.gif" alt="India"></td>
+                        <td>26</td>
+                        <td>1</td>
+                        <td>844</td>
+                        <td>1</td>
+                        <td>4</td>
+                        <td>77.5</td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                        <td>Vikram Bhardwaj</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>31</td>
+                        <td>1</td>
+                        <td>776</td>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>77.8</td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        <td>Harsh Agrawal</td>
+                        <td><img src="/images/ind flag.gif" alt="India"></td>
+                        <td>28</td>
+                        <td>1</td>
+                        <td>744</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>78.0</td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <footer class="footer">
+        <a href="index.html">Golfshire Golf Club &copy; 2024</a>
+    </footer>
+</body>
+
+</html>

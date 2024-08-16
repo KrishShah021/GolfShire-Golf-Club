@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Host a tournament - Golfshire Golf Club</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link href="/css/GolfShire Golf Club Main.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            padding-top: 80px;
+            /* Ensure space for fixed navbar */
+        }
+
+
+        /* NAVBAR CSS */
+        .navbar {
+            z-index: 99;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgb(61, 64, 91) !important;
+        }
+
+        #navbarNav {
+            color: var(--white-color);
+            position: relative;
+            right: -300px;
+        }
+
+        #nav-logo {
+            color: var(--white-color);
+        }
+
+        /* Remove the default Bootstrap dropdown indicator */
+        .nav-link.dropdown-toggle::after {
+            display: none;
+        }
+
+        /* Style the custom dropdown arrow */
+        .dropdown-arrow {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid #ffffff;
+            margin-left: -1px;
+            vertical-align: middle;
+            transition: border-top 0.3s ease;
+            margin-top: -1px;
+        }
+
+        /* Hover state for the dropdown link and arrow */
+        .nav-link.dropdown-toggle:hover .dropdown-arrow {
+            border-top-color: #f2cc8f;
+            /* Arrow color on hover */
+        }
+
+        .nav-link.dropdown-toggle:hover {
+            color: #f2cc8f;
+            /* Text color on hover */
+        }
+
+        /* Hero Section */
+        #hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        #hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-content {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero-content h1 {
+            position: relative;
+            top: -60px;
+            font-size: 48px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            position: relative;
+            color: white;
+            top: -55px;
+        }
+
+        #timeline {
+            padding: 60px 20px;
+            background-color: #f4f4f4;
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 85px;
+        }
+
+        .timeline-container {
+            max-width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .timeline h2 {
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: #56ab2f;
+        }
+
+        .timeline {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 20px 0;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        #timeline-header {
+            font-size: 40px;
+            margin-bottom: 65px;
+        }
+
+        .timeline-item {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            flex: 0 0 auto;
+            width: 320px;
+            scroll-snap-align: center;
+            position: relative;
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-10px);
+            background: aliceblue;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            width: 15px;
+            height: 15px;
+            background: #56ab2f;
+            border-radius: 50%;
+            left: -10px;
+            transform: translateX(-50%);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: rgb(61, 64, 91);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 550;
+        }
+
+        .timeline-item p {
+            font-size: 18px;
+            margin-bottom: 0;
+            line-height: 1.4;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+
+        /* Scrollbar Styles */
+        #timeline::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        #timeline::-webkit-scrollbar-thumb {
+            background-color: #56ab2f;
+            border-radius: 10px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .timeline-item {
+                width: 240px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .timeline-item {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .timeline-item {
+                width: 180px;
+            }
+        }
+
+        #virtual-tour {
+            padding: 100px 20px;
+            background: #f3f3f3;
+            text-align: center;
+            position: relative;
+            margin-top: -80px;
+        }
+
+        #virtual-tour p {
+            color: white;
+        }
+
+        .tour-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #virtual-tour h2 {
+            font-size: 40px;
+            margin-bottom: 75px;
+            letter-spacing: 1px;
+        }
+
+        /* Flyover Container */
+        .flyover-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .flyover-stage {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .flyover-slide {
+            min-width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flyover-slide img,
+        .flyover-slide video {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 90%;
+            font-size: 1.2rem;
+            text-align: left;
+        }
+
+
+        .controls {
+            margin-top: 40px;
+        }
+
+        .controls button {
+            background-color: rgb(61, 64, 91);
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            margin: 0 10px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .controls button:hover {
+            background-color: rgb(47, 57, 67);
+            transform: scale(1.1);
+        }
+
+        /* Ensure the inquiry section spans the full width of the viewport */
+        .inquiry-section {
+            width: 100vw;
+            background: #f5f5f5;
+            padding: 60px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+            top: -60px;
+        }
+
+        .content {
+            max-width: 1500px;
+            /* Constrain the content width for readability */
+            width: 1500px;
+            /* Allow some margin on smaller screens */
+            padding: 0 20px;
+            background: #fff;
+            /* White background for the content */
+            border-radius: 10px;
+            /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow for depth */
+            text-align: center;
+            /* Center-align the text */
+        }
+
+        .section-title {
+            font-size: 40px;
+            color: #333;
+            margin-bottom: 20px;
+            font-family: 'Roboto', sans-serif;
+            margin-top: 50px;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: #000000;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            /* Wrap to handle smaller screens */
+            gap: 10px;
+        }
+
+        .feature-card {
+            background: aliceblue;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 30%;
+            margin: 10px;
+            flex: 1;
+            height: 190px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: aliceblue;
+            /* Light blue background on hover */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            /* Enhanced shadow for depth */
+            transform: scale(1.05);
+            /* Slight zoom effect */
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: #4CAF50;
+            /* Green for icons */
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .feature-card:hover i {
+            color: aliceblue;
+            /* Darker green on hover */
+        }
+
+        .feature-card h3 {
+            font-size: 1.6rem;
+            color: rgb(61, 64, 91);
+            margin-bottom: 10px;
+            font-weight: 550;
+        }
+
+        .feature-card p {
+            font-size: 18px;
+            color: #000000;
+            line-height: 1.4;
+            bottom: -15px;
+            position: relative;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            background: rgb(61, 64, 91);
+            /* Green background */
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            margin-bottom: 50px;
+            position: relative;
+            bottom: -10px;
+        }
+
+        .cta-button:hover {
+            background: rgb(47, 57, 67);
+            /* Darker green on hover */
+        }
+
+        .cta-button i {
+            margin-left: 10px;
+        }
+
+        #section-text {
+            position: relative;
+            top: -15px;
+        }
+
+
+        /* Testimonials Section */
+        #testimonials {
+            padding: 80px 20px;
+            background-color: #f5f5f5;
+            text-align: center;
+            color: #333;
+            top: -60px;
+            position: relative;
+            margin-bottom: -100px;
+        }
+
+        #testimonials h2 {
+            font-size: 40px;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 50px;
+        }
+
+        .testimonial-carousel {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            animation: fadeIn 1.5s ease-in-out;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .testimonial {
+            background: #fff;
+            padding: 20px;
+            /* Adjusted padding for more content space */
+            border-radius: 10px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 320px;
+            /* Increased width to contain text */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 360px;
+            /* Adjusted height for more content space */
+            word-wrap: break-word;
+            overflow: hidden;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            object-fit: cover;
+            border: 3px solid rgb(61, 64, 91);
+        }
+
+        .testimonial p {
+            font-size: 18px;
+            line-height: 1.4;
+            color: #333;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .testimonial-name {
+            font-weight: bold;
+            font-size: 1rem;
+            color: #333;
+            margin-top: auto;
+            /* Pushes the name to the bottom */
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #3D405B;
+            color: white;
+            position: relative;
+            bottom: -40px;
+            font-size: 25px;
+        }
+
+        .footer a {
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+
+        .member-btn {
+            display: inline-block;
+            padding: 10px 30px;
+            background-color: rgb(61, 64, 91);
+            color: #F2CC8F;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .member-btn:hover {
+            background-color: #F2CC8F;
+            text-decoration: none;
+           
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" id="nav-logo" href="index.html">
+                <img src="/images/logo final.png" class="navbar-brand-image img-fluid"
+                    alt="Golfshire Golf Club">
+                <span class="navbar-brand-text">
+                    Golfshire
+                    <small>Golf Club</small>
+                </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#section_1">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#section_2">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#section_3">Membership</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#section_4">Series</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#section_5">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Restaurant.html">Restaurant</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Tournament.html">Tournament</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Events
+                            <span class="dropdown-arrow"></span>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                            <li><a class="dropdown-item" href="Wedding.html">Wedding & Gatherings</a></li>
+                            <li><a class="dropdown-item" href="Corporate.html">Corporate</a></li>
+
+                            <li><a class="dropdown-item active" href="Host a tournament.html">Host a Tournament</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <video src="/images/Host a tournament bg.mp4" autoplay muted loop></video>
+        <div class="hero-content">
+            <h1 class="main-title">HOST A TOURNAMENT</h1>
+            <p class="subtitle">
+                Turn Every Swing into a Chapter of a Timeless Championship Story.</p>
+        </div>
+    </section>
+
+
+    <section id="timeline">
+        <div class="timeline-container">
+            <h2 id="timeline-header">The Evolution of a Tournament</h2>
+            <div class="timeline">
+                <!-- Timeline Items -->
+                <div class="timeline-item">
+                    <h3>Planning</h3>
+                    <p>Craft your ideal tournament with our expert touch, from concept to final details.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Registration</h3>
+                    <p>Effortless sign-ups and seamless entry management for a flawless start.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Execution</h3>
+                    <p>Experience a perfectly orchestrated event, with every detail managed to perfection.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Awards</h3>
+                    <p>Honor achievements with a memorable awards ceremony that celebrates success in style.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="virtual-tour">
+        <div class="tour-container">
+            <h2>Virtual Walkthrough</h2>
+            <div class="flyover-container">
+                <div class="flyover-stage">
+                    <!-- Slide 1 - Image -->
+                    <div class="flyover-slide" id="slide1">
+                        <img src="/images/virtual tour photo.png" alt="virtual tour photo 1">
+                        <div class="caption">
+                            <p class="tour-p">&#8226; Discover the serene beauty of our lush fairways, perfect for a
+                                relaxing round of golf.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 - Image -->
+                    <div class="flyover-slide" id="slide2">
+                        <img src="/images/virtual tour photo 2.jpg"
+                            alt="virtual tour photo 2">
+                        <div class="caption">
+                            <p>&#8226; Revel in the picturesque scenery that makes every round of golf a unique
+                                experience.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 - Image -->
+                    <div class="flyover-slide" id="slide2">
+                        <img src="/images/virtual tour photo 6.jpg" alt="virtual tour photo 3">
+                        <div class="caption">
+                            <p>&#8226; Admire our stylish interior, where contemporary elegance meets classic comfort for a truly enjoyable experience.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 - Image -->
+                    <div class="flyover-slide" id="slide2">
+                        <img src="/images/virtual tour photo 5.jpg"
+                            alt="virtual tour photo 4">
+                        <div class="caption">
+                            <p>&#8226; Experience the sophistication of our dining facilities, where every meal is a
+                                culinary delight.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5 - Image -->
+                    <div class="flyover-slide" id="slide2">
+                        <img src="/images/virtual tour photo 3.jpg"
+                            alt="virtual tour photo 5">
+                        <div class="caption">
+                            <p>&#8226; Elevate your game with our premium golf clubs, crafted for precision and
+                                performance on every swing.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 6 - Image -->
+                    <div class="flyover-slide" id="slide2">
+                        <img src="/images/virtual tour photo 4.jpg"
+                            alt="virtual tour photo 6">
+                        <div class="caption">
+                            <p>&#8226; Admire the stunning landscape and perfectly maintained grounds that make every
+                                visit memorable.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 7 - Image -->
+                    <div class="flyover-slide" id="slide4">
+                        <img src="/images/virtual tour photo 7.jpg"
+                            alt="virtual tour photo 7">
+                        <div class="caption">
+                            <p>&#8226; Marvel at the breathtaking sunrise views over our meticulously maintained greens.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="prev">← Previous</button>
+                <button id="next">Next →</button>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="host-tournament-inquiry" class="inquiry-section">
+        <div class="content">
+            <h2 class="section-title">Host Your Tournament with Us</h2>
+            <p class="section-description">
+                Transform your golf tournament into a prestigious event at our world-class golf club. With lush greens,
+                top-tier facilities, and impeccable service, we ensure every detail is perfect. Whether you're hosting a
+                corporate challenge, charity event, or competitive match, our bespoke packages are designed to exceed
+                your expectations and make your event truly unforgettable.
+            </p>
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-golf-ball"></i>
+                    <h3>World-Class Facilities</h3>
+                    <p>Experience top-tier golfing conditions and golf courses that meticulously maintained for an
+                        exceptional experience.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Customized Event Packages</h3>
+                    <p>Tailor your event with bespoke packages to suit your specific needs and preferences.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cocktail"></i>
+                    <h3>Exceptional Catering</h3>
+                    <p>Savor gourmet cuisine and fine beverages crafted by our top chefs, ensuring your guests are well
+                        taken care of.</p>
+                </div>
+            </div>
+            <p class="section-description" id="section-text">
+                Ready to turn your vision into reality? Fill out our inquiry form and let us handle the rest. We’re here
+                to make your tournament truly spectacular.
+            </p>
+            <a href="Host A Tournament Form.html" target="_blank" class="cta-button">
+                <span>Start Your Inquiry</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-carousel">
+            <div class="testimonial">
+                <img src="/images/review image 1.jpg" alt="Person 1">
+                <p>"Golfshire made our event flawless. The staff's attention to detail and the pristine course exceeded
+                    all expectations!"</p>
+                <span class="testimonial-name">K.P. Suresh</span>
+            </div>
+            <div class="testimonial">
+                <img src="/images/review image 2.jpg" alt="Person 3">
+                <p>"Golfshire sets the standard for tournaments. The professionalism and beauty of the venue made our
+                    event a huge success!"</p>
+                <span class="testimonial-name">Dr. Ranga Nayak</span>
+            </div>
+            <div class="testimonial">
+                <img src="/images/review image 3.jpg" alt="Person 2">
+                <p>"Hosting our tournament at Golfshire was spectacular! The service and course were top-notch, leaving
+                    our clients impressed."</p>
+                <span class="testimonial-name">Chister Lindh</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <a href="index.html">Golfshire Golf Club &copy; 2024</a>
+    </footer>
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/scrollReveal.min.js"></script>
+    <script src="/Golfshire Golf Club/js/GolfShire Golf Club.js"></script>
+    <script>
+        const slides = document.querySelectorAll('.flyover-slide');
+        let currentSlide = 0;
+
+        document.getElementById('next').addEventListener('click', () => {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+            } else {
+                currentSlide = 0;
+            }
+            updateSlide();
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+            } else {
+                currentSlide = slides.length - 1;
+            }
+            updateSlide();
+        });
+
+        function updateSlide() {
+            const stage = document.querySelector('.flyover-stage');
+            stage.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+    </script>
+</body>
+
+</html>
